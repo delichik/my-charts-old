@@ -169,7 +169,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10095
+                              default: 80
                               required: true
         - variable: torrent
           label: "TCP Torrent Service"

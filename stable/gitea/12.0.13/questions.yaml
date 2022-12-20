@@ -272,7 +272,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10037
+                              default: 80
                               required: true
         - variable: ssh
           label: "SSH Service"
@@ -324,7 +324,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 2222
+                              default: 22
                               required: true
   - variable: serviceexpert
     group: Networking and Services

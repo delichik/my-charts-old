@@ -12,15 +12,15 @@ service:
   main:
     ports:
       main:
-        port: 10037
-        targetPort: 3000
+        port: 80
+        targetPort: 80s
   ssh:
     enabled: true
     ports:
       ssh:
         enabled: true
-        port: 2222
-        targetPort: 2222
+        port: 22
+        targetPort: 22
 
 envFrom:
   - configMapRef:

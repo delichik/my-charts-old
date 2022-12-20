@@ -857,7 +857,7 @@ questions:
                             label: "Entrypoints Port"
                             schema:
                               type: int
-                              default: 9000
+                              default: 80
                               required: true
         - variable: tcp
           label: "TCP Service"
@@ -1001,7 +1001,7 @@ questions:
                             label: "Entrypoints Port"
                             schema:
                               type: int
-                              default: 9443
+                              default: 443
                               required: true
                           - variable: advanced
                             label: Show Advanced Settings
