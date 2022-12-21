@@ -10,8 +10,8 @@ service:
   main:
     ports:
       main:
-        port: 10095
-        targetPort: 8080
+        port: 80
+        targetPort: 80
   torrent:
     enabled: true
     ports:
