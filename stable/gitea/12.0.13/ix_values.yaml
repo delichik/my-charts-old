@@ -13,7 +13,7 @@ service:
     ports:
       main:
         port: 80
-        targetPort: 80s
+        targetPort: 80
   ssh:
     enabled: true
     ports:

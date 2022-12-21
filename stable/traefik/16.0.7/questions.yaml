@@ -857,7 +857,7 @@ questions:
                             label: "Entrypoints Port"
                             schema:
                               type: int
-                              default: 80
+                              default: 9000
                               required: true
         - variable: tcp
           label: "TCP Service"
@@ -908,7 +908,7 @@ questions:
                             label: "Entrypoints Port"
                             schema:
                               type: int
-                              default: 9080
+                              default: 80
                               required: true
                           - variable: advanced
                             label: Show Advanced Settings
@@ -1725,12 +1725,12 @@ questions:
                     label: Target CPU Utilization Percentage
                     schema:
                       type: int
-                      default: 80
+                      default: 9000
                   - variable: targetMemoryUtilizationPercentage
                     label: Target Memory Utilization Percentage
                     schema:
                       type: int
-                      default: 80
+                      default: 9000
   - variable: networkPolicy
     group: Advanced
     label: (Advanced) Network Policy

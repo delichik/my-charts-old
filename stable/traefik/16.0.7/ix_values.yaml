@@ -138,8 +138,8 @@ service:
     type: LoadBalancer
     ports:
       main:
-        port: 80
-        targetPort: 80
+        port: 9000
+        targetPort: 9000
         protocol: HTTP
         # -- Forwarded Headers should never be enabled on Main entrypoint
         forwardedHeaders:
@@ -153,7 +153,7 @@ service:
     ports:
       web:
         enabled: true
-        port: 9080
+        port: 80
         protocol: HTTP
         redirectTo: websecure
         # Options: Empty, 0 (ingore), or positive int
