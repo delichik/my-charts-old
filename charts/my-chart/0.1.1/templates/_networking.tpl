@@ -35,8 +35,8 @@ hostname: {{ .Values.hostnameConfiguration.hostname | quote }}
 {{/*
 Subdomian
 */}}
-{{- if .Values.hostnameConfiguration.subdomian }}
-subdomian: {{ .Values.hostnameConfiguration.subdomian | quote }}
+{{- if .Values.hostnameConfiguration.subdomain }}
+subdomian: {{ .Values.hostnameConfiguration.subdomain | quote }}
 {{- end }}
 {{- end }}
 {{- end }}
