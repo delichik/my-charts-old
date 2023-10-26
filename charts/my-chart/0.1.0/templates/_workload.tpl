@@ -112,8 +112,11 @@ containers:
   {{- include "containerLivenssProbe" . | indent 2 }}
   {{- include "containerPorts" . | indent 2 }}
   {{- include "containerResourceConfiguration" . | indent 2 }}
+  {{- include "workingDir" . | indent 2 }}
 {{- include "volumeConfiguration" . }}
 {{- include "dnsConfiguration" . }}
+{{- include "hostAliases" . }}
+{{- include "hostname" . }}
 {{- end }}
 
 
