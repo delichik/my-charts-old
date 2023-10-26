@@ -390,11 +390,13 @@ questions:
       attrs:
         - variable: hostname
           description: "Hostname"
+          label: "Hostname"
           schema:
             type: string
             default: ""
         - variable: subdomain
           description: "Subdomain"
+          label: "Subdomain"
           schema:
             type: string
             default: ""
