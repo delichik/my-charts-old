@@ -234,7 +234,7 @@ questions:
     group: "Working Dir"
     schema:
       type: string
-      required: true
+      default: ""
 
   # Networking options
   - variable: externalInterfaces
@@ -416,7 +416,7 @@ questions:
                 label: "IP"
                 schema:
                   type: ipaddr
-                  cidr: true
+                  cidr: false
                   required: true
               - variable: hostname
                 label: "Hostname"
