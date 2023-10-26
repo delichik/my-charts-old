@@ -385,24 +385,6 @@ questions:
                         type: string
                         required: true
 
-  - variable: hostnameConfiguration
-    description: "Hostname"
-    label: "Hostname Configuration"
-    group: "Networking"
-    schema:
-      type: dict
-      attrs:
-        - variable: hostname
-          description: "Hostname"
-          label: "Hostname"
-          schema:
-            type: string
-        - variable: subdomain
-          description: "Subdomain"
-          label: "Subdomain"
-          schema:
-            type: string
-
   - variable: hostAliases
     label: "Host Aliases"
     group: "Networking"
@@ -433,6 +415,14 @@ questions:
       type: boolean
       default: false
       show_if: [["externalInterfaces", "=", []]]
+
+  - variable: forceService
+    label: "Force enabled a service"
+    group: "Networking"
+    schema:
+      type: boolean
+      default: false
+      show_if: [["externalInterfaces", "=", []], ["hostPortsList", "=", []], ["hostNetwork", "=", false]]
 
   - variable: hostPortsList
     label: "Specify host ports for the workload"

@@ -23,25 +23,6 @@ hostAliases:
 {{- end }}
 {{- end }}
 
-{{- define "hostname" }}
-{{- if .Values.hostnameConfiguration }}
-{{/*
-Hostname
-*/}}
-{{- if .Values.hostnameConfiguration.hostname }}
-hostname: {{ .Values.hostnameConfiguration.hostname | quote }}
-{{- end }}
-
-{{/*
-Subdomian
-*/}}
-{{- if .Values.hostnameConfiguration.subdomain }}
-subdomain: {{ .Values.hostnameConfiguration.subdomain | quote }}
-{{- end }}
-{{- end }}
-{{- end }}
-
-
 {{/*
 Get configuration for host network
 */}}

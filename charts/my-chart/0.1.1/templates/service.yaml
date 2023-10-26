@@ -17,4 +17,13 @@ spec:
     {{- end }}
   selector:
     {{- include "ix-chart.selectorLabels" . | nindent 4 }}
+{{- else if .Values.forceService }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "ix-chart.fullname" . }}
+  labels:
+    {{- include "ix-chart.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
 {{- end }}

@@ -116,7 +116,6 @@ containers:
 {{- include "volumeConfiguration" . }}
 {{- include "dnsConfiguration" . }}
 {{- include "hostAliases" . }}
-{{- include "hostname" . }}
 {{- end }}
 
 
