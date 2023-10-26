@@ -1,0 +1,33 @@
+{
+    "charts": {
+        "ix-chart": {
+            "app_readme": "<h1>iX-Chart</h1>\n<p>iX-chart is a chart designed to let user deploy a docker image in a TrueNAS SCALE kubernetes cluster.\nIt provides a mechanism to specify workload type, add external host interfaces in the pods, configure volumes and allocate host resources to the workload.</p>",
+            "categories": [
+                "generic"
+            ],
+            "description": "A Helm chart for deploying simple workloads Kubernetes",
+            "healthy": true,
+            "healthy_error": null,
+            "home": "https://www.truenas.com/",
+            "location": "/__w/charts/charts/charts/ix-chart",
+            "latest_version": "2308.0.2",
+            "latest_app_version": "v2",
+            "latest_human_version": "v2_2308.0.2",
+            "last_update": "2023-10-26 21:38:00",
+            "name": "ix-chart",
+            "recommended": false,
+            "title": "ix-chart",
+            "maintainers": [
+                {
+                    "name": "truenas",
+                    "url": "https://www.truenas.com/",
+                    "email": "dev@ixsystems.com"
+                }
+            ],
+            "tags": [],
+            "screenshots": [],
+            "sources": [],
+            "icon_url": null
+        }
+    }
+}
