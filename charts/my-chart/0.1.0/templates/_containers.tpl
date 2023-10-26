@@ -81,6 +81,6 @@ Container Working Dir
 */}}
 {{- define "workingDir" }}
 {{- if .Values.workingDir }}
-workingDir: {{ . | quote}}
+workingDir: {{ .value | quote}}
 {{- end }}
 {{- end }}

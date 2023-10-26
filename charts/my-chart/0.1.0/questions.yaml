@@ -233,7 +233,12 @@ questions:
     label: "Working Dir"
     group: "Working Dir"
     schema:
-      type: string
+      type: dict
+      default: []
+      attrs:
+        - variable: value
+          schema:
+            type: string
 
   # Networking options
   - variable: externalInterfaces
@@ -385,7 +390,7 @@ questions:
     group: "Networking"
     schema:
       type: dict
-      required: true
+      default: []
       attrs:
         - variable: hostname
           description: "Hostname"
