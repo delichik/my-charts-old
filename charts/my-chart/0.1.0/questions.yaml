@@ -234,7 +234,6 @@ questions:
     group: "Working Dir"
     schema:
       type: string
-      default: ""
 
   # Networking options
   - variable: externalInterfaces
@@ -393,13 +392,11 @@ questions:
           label: "Hostname"
           schema:
             type: string
-            default: ""
         - variable: subdomain
           description: "Subdomain"
           label: "Subdomain"
           schema:
             type: string
-            default: ""
 
   - variable: hostAliases
     label: "Host Aliases"
