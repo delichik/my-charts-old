@@ -234,7 +234,6 @@ questions:
     group: "Working Dir"
     schema:
       type: dict
-      default: []
       attrs:
         - variable: value
           description: "Working Dir"
@@ -392,7 +391,6 @@ questions:
     group: "Networking"
     schema:
       type: dict
-      default: []
       attrs:
         - variable: hostname
           description: "Hostname"
