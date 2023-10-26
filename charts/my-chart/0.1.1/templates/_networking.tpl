@@ -28,8 +28,8 @@ hostAliases:
 {{/*
 Hostname
 */}}
-{{- if .Values.hostname }}
-hostname: {{ .hostname | quote }}
+{{- if .Values.hostname.hostname }}
+hostname: {{ . | quote }}
 {{- end }}
 
 {{/*
