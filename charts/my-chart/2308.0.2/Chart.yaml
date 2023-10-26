@@ -1,9 +1,9 @@
-name: ix-chart
+name: my-chart
 description: A Helm chart for deploying simple workloads Kubernetes
 annotations:
-  title: ix-chart
+  title: my-chart
 type: application
-version: 2308.0.2
+version: 0.1
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 maintainers:
