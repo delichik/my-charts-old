@@ -29,14 +29,14 @@ hostAliases:
 Hostname
 */}}
 {{- if .Values.hostnameConfiguration.hostname }}
-hostname: {{ . | quote }}
+hostname: {{ .Values.hostnameConfiguration.hostname | quote }}
 {{- end }}
 
 {{/*
 Subdomian
 */}}
 {{- if .Values.hostnameConfiguration.subdomian }}
-subdomian: {{ . | quote }}
+subdomian: {{ .Values.hostnameConfiguration.subdomian | quote }}
 {{- end }}
 {{- end }}
 {{- end }}
