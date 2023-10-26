@@ -24,18 +24,18 @@ hostAliases:
 {{- end }}
 
 {{- define "hostname" }}
-{{- if .Values.hostname }}
+{{- if .Values.hostnameConfiguration }}
 {{/*
 Hostname
 */}}
-{{- if .Values.hostname.hostname }}
+{{- if .Values.hostnameConfiguration.hostname }}
 hostname: {{ . | quote }}
 {{- end }}
 
 {{/*
 Subdomian
 */}}
-{{- if .Values.hostname.subdomian }}
+{{- if .Values.hostnameConfiguration.subdomian }}
 subdomian: {{ . | quote }}
 {{- end }}
 {{- end }}

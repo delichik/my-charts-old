@@ -385,7 +385,7 @@ questions:
                         type: string
                         required: true
 
-  - variable: hostname
+  - variable: hostnameConfiguration
     description: "Hostname"
     label: "Hostname Configuration"
     group: "Networking"
