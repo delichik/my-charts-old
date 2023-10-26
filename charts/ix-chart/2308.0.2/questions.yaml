@@ -5,6 +5,8 @@ groups:
     description: "Configuration of the executable that will be run when the container is started"
   - name: "Container Environment Variables"
     description: "Set the environment that will be visible to the container"
+  - name: "Working Dir"
+    description: "Configure working dir"
   - name: "Networking"
     description: "Configure networking for container"
   - name: "Port Forwarding"
