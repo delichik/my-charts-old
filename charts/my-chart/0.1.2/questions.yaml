@@ -473,6 +473,12 @@ questions:
                   type: int
                   required: true
                   default: 8080
+              - variable: containerPort
+                label: "Container Port"
+                hidden: true
+                schema:
+                  type: int
+                  default: 80
               - variable: targetPort
                 label: "Target Port"
                 schema:
