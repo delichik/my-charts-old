@@ -6,7 +6,7 @@ metadata:
   labels:
     {{- include "ix-chart.labels" . | nindent 4 }}
 spec:
-  type: NodePort
+  type: {{ .Values.serviceType | quote }}
   ports:
     {{- range $index, $config := .Values.portForwardingList }}
     - port: {{ $config.containerPort }}
@@ -17,13 +17,4 @@ spec:
     {{- end }}
   selector:
     {{- include "ix-chart.selectorLabels" . | nindent 4 }}
-{{- else if .Values.forceService }}
-apiVersion: v1
-kind: Service
-metadata:
-  name: {{ include "ix-chart.fullname" . }}
-  labels:
-    {{- include "ix-chart.labels" . | nindent 4 }}
-spec:
-  type: ClusterIP
 {{- end }}
