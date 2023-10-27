@@ -441,6 +441,19 @@ questions:
                   type: string
                   required: true
 
+  - variable: serviceType
+    label: "Service Type"
+    group: "Port Forwarding"
+    schema:
+      show_if: [["hostNetwork", "=", false]]
+      type: string
+      default: "ClusterIP"
+      enum:
+        - value: "ClusterIP"
+          description: "ClusterIP"
+        - value: "NodePort"
+          description: "NodePort"
+
   - variable: portForwardingList
     label: "Specify Node ports to forward to workload"
     group: "Port Forwarding"
@@ -476,19 +489,6 @@ questions:
                       description: "TCP Protocol"
                     - value: "UDP"
                       description: "UDP Protocol"
-
-  - variable: serviceType
-    label: "Service Type"
-    group: "Networking"
-    schema:
-      show_if: [["hostNetwork", "=", false]]
-      type: string
-      default: "ClusterIP"
-      enum:
-        - value: "ClusterIP"
-          description: "ClusterIP"
-        - value: "NodePort"
-          description: "NodePort"
 
   # Storage Options
   # Host path based volumes
