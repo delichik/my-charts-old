@@ -11,7 +11,7 @@ spec:
 {{- if eq .Values.serviceType "NodePort" }}
     {{- range $index, $config := .Values.portForwardingList }}
     - port: {{ $config.port }}
-      targetPort: {{ $config.targetPort }}
+      targetPort: {{ $config.port }}
       protocol: {{ $config.protocol }}
       nodePort: {{ $config.nodePort }}
       name: ix-{{ $.Release.Name }}-{{ $config.port }}-{{ $index }}
@@ -19,7 +19,7 @@ spec:
 {{ else }}
     {{- range $index, $config := .Values.portForwardingList }}
     - port: {{ $config.port }}
-      targetPort: {{ $config.port }}
+      targetPort: {{ $config.targetPort }}
       protocol: {{ $config.protocol }}
       name: ix-{{ $.Release.Name }}-{{ $config.port }}-{{ $index }}
     {{- end }}
