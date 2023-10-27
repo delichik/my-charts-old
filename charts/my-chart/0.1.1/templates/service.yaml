@@ -12,7 +12,9 @@ spec:
     - port: {{ $config.containerPort }}
       targetPort: {{ $config.containerPort }}
       protocol: {{ $config.protocol }}
+      {{- if eq .Values.serviceType "NodePort" }}
       nodePort: {{ $config.nodePort }}
+      {{- end }}
       name: ix-{{ $.Release.Name }}-{{ $config.nodePort }}-{{ $index }}
     {{- end }}
   selector:
