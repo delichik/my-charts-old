@@ -416,13 +416,6 @@ questions:
       default: false
       show_if: [["externalInterfaces", "=", []]]
 
-  - variable: forceService
-    label: "Force enabled a service"
-    group: "Networking"
-    schema:
-      type: boolean
-      default: false
-
   - variable: hostPortsList
     label: "Specify host ports for the workload"
     description: "Only use host ports if scaling of a workload is not required"
@@ -483,6 +476,19 @@ questions:
                       description: "TCP Protocol"
                     - value: "UDP"
                       description: "UDP Protocol"
+
+  - variable: serviceType
+    label: "Service Type"
+    group: "Networking"
+    schema:
+      show_if: [["hostNetwork", "=", false]]
+      type: string
+      default: "ClusterIP"
+      enum:
+        - value: "ClusterIP"
+          description: "ClusterIP"
+        - value: "NodePort"
+          description: "NodePort"
 
   # Storage Options
   # Host path based volumes
