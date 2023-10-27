@@ -472,27 +472,19 @@ questions:
                 schema:
                   type: int
                   required: true
-                  default: 8080
-              - variable: containerPort
-                label: "Container Port"
-                schema:
-                  type: int
-                  hidden: true
                   default: 80
               - variable: targetPort
                 label: "Target Port"
                 schema:
                   type: int
-                  show_if: [["serviceType", "=", "ClusterIP"]]
                   required: true
                   default: 80
                   min: 1
                   max: 65535
               - variable: nodePort
-                label: "Node Port"
+                label: "Node Port (in NodePort Mode)"
                 schema:
                   type: int
-                  show_if: [["serviceType", "=", "NodePort"]]
                   required: true
                   default: 9000
                   min: 9000
@@ -507,6 +499,12 @@ questions:
                       description: "TCP Protocol"
                     - value: "UDP"
                       description: "UDP Protocol"
+              - variable: containerPort
+                label: "Container Port"
+                schema:
+                  type: int
+                  hidden: true
+                  default: 80
 
   # Storage Options
   # Host path based volumes
