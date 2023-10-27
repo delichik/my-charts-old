@@ -476,8 +476,10 @@ questions:
                 label: "Node Port"
                 schema:
                   type: int
+                  show_if: [["serviceType", "=", "NodePort"]]
                   required: true
-                  min: 1
+                  default: 9000
+                  min: 9000
                   max: 65535
               - variable: protocol
                 label: "Protocol"
