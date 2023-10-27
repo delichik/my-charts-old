@@ -472,6 +472,7 @@ questions:
                 schema:
                   type: int
                   required: true
+                  default: 8080
               - variable: targetPort
                 label: "Target Port"
                 schema:
