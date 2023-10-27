@@ -8,15 +8,22 @@ metadata:
 spec:
   type: {{ .Values.serviceType | quote }}
   ports:
+{{- if eq .Values.serviceType "NodePort" }}
     {{- range $index, $config := .Values.portForwardingList }}
     - port: {{ $config.containerPort }}
       targetPort: {{ $config.containerPort }}
       protocol: {{ $config.protocol }}
-      {{- if eq .Values.serviceType "NodePort" }}
       nodePort: {{ $config.nodePort }}
-      {{- end }}
       name: ix-{{ $.Release.Name }}-{{ $config.nodePort }}-{{ $index }}
     {{- end }}
+{{ else }}
+    {{- range $index, $config := .Values.portForwardingList }}
+    - port: {{ $config.containerPort }}
+      targetPort: {{ $config.containerPort }}
+      protocol: {{ $config.protocol }}
+      name: ix-{{ $.Release.Name }}-{{ $config.nodePort }}-{{ $index }}
+    {{- end }}
+{{- end }}
   selector:
     {{- include "ix-chart.selectorLabels" . | nindent 4 }}
 {{- end }}
