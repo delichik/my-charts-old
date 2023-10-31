@@ -1,7 +1,7 @@
 {
     "charts": {
         "my-chart": {
-            "app_readme": "<h1>iX-Chart</h1>\n<p>iX-chart is a chart designed to let user deploy a docker image in a TrueNAS SCALE kubernetes cluster.\nIt provides a mechanism to specify workload type, add external host interfaces in the pods, configure volumes and allocate host resources to the workload.</p>",
+            "app_readme": "<h1>My-Chart</h1>\n<p>A fork of iX-Chart</p>",
             "categories": [
                 "templates"
             ],
@@ -10,18 +10,18 @@
             "healthy_error": null,
             "home": "https://www.truenas.com/",
             "location": "/__w/charts/charts/charts/my-chart",
-            "latest_version": "0.1.3",
+            "latest_version": "0.1.4",
             "latest_app_version": "v2",
-            "latest_human_version": "v2_0.1.3",
-            "last_update": "2023-10-27 13:00:00",
+            "latest_human_version": "v2_0.1.4",
+            "last_update": "2023-10-31 15:00:00",
             "name": "my-chart",
             "recommended": false,
             "title": "my-chart",
             "maintainers": [
                 {
-                    "name": "truenas",
-                    "url": "https://www.truenas.com/",
-                    "email": "dev@ixsystems.com"
+                    "name": "delichik",
+                    "url": "https://github.com/delichik/my-charts/",
+                    "email": "delichik@imiku.moe"
                 }
             ],
             "tags": [],
