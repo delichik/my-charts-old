@@ -735,9 +735,9 @@ questions:
   - variable: init
     description: "Init Container Configuration"
     group: "Init Configuration"
-    show_if: [[ "enableInit", "=", "true" ]]
     schema:
       type: dict
+      show_if: [["enableInit", "=", true]]
       attrs:
         - variable: image
           description: "Docker Image Details of Init Container"
