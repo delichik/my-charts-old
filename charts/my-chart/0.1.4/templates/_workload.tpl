@@ -59,18 +59,7 @@ runtimeClassName: {{ .Values.global.ixChartContext.nvidiaRuntimeClassName }}
     {{- end }}
   {{- end }}
 {{- end }}
-
-initContainers:
-- name: {{ .Chart.Name }}-init
-  {{- include "volumeMountsConfiguration" . | indent 2}}
-  securityContext:
-    privileged: true
-  image: "{{ .Values.init.image.repository }}:{{ .Values.init.image.tag | default "latest" }}"
-  imagePullPolicy: {{ .Values.init.image.pullPolicy }}
-  {{- include "initContainerCommand" . | indent 2 }}
-  {{- include "initContainerEnvVariables" . | indent 2 }}
-  {{- include "workingDir" . | indent 2 }}
-
+{{- include "initContainer" . }}
 containers:
 - name: {{ .Chart.Name }}
   {{ include "common.resources.limitation" . | nindent 2 }}

@@ -25,6 +25,8 @@ groups:
     description: "Specify resources to be allocated to workload"
   - name: "Resource Limits"
     description: "Set CPU/memory limits for Kubernetes Pod"
+  - name: "Init Configuration"
+    description: "Configure Init Container"
   - name: "Portal Configuration"
     description: "Configure UI web portal"
 
@@ -722,9 +724,18 @@ questions:
       valid_chars: "^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$"
       default: "8Gi"
 
+
+  - variable: enableInit
+    description: "Enable Init Container Configuration"
+    group: "Init Configuration"
+    schema:
+      type: boolean
+      default: false
+
   - variable: init
     description: "Init Container Configuration"
     group: "Init Configuration"
+    show_if: [[ "enableInit", "=", "true" ]]
     schema:
       type: dict
       attrs:
