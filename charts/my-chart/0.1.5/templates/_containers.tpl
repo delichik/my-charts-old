@@ -89,9 +89,9 @@ workingDir: {{ .Values.workingDir.value | quote}}
 Init Container Command
 */}}
 {{- define "initContainerCommand" }}
-{{- if .Values.init.containerCommand }}
+{{- if .Values.initContainer.containerCommand }}
 command:
-  {{- range .Values.init.containerCommand }}
+  {{- range .Values.initContainer.containerCommand }}
   - {{ . | quote}}
   {{- end }}
 {{- end }}
@@ -101,7 +101,7 @@ command:
 Init Container Environment Variables
 */}}
 {{- define "initContainerEnvVariables" }}
-{{- if or .Values.init.containerEnvironmentVariables .Values.containerEnvironmentVariables }}
+{{- if or .Values.initContainer.containerEnvironmentVariables .Values.containerEnvironmentVariables }}
 env:
   {{- if .Values.containerEnvironmentVariables }}
   {{- range .Values.containerEnvironmentVariables }}
@@ -109,8 +109,8 @@ env:
     value: {{ .value | quote }}
   {{- end }}
   {{- end }}
-  {{- if .Values.init.containerEnvironmentVariables }}
-  {{- range .Values.init.containerEnvironmentVariables }}
+  {{- if .Values.initContainer.containerEnvironmentVariables }}
+  {{- range .Values.initContainer.containerEnvironmentVariables }}
   - name: {{ .name | quote }}
     value: {{ .value | quote }}
   {{- end }}
@@ -123,14 +123,14 @@ env:
 Init Container
 */}}
 {{- define "initContainer" }}
-{{- if .Values.enableInit }}
+{{- if .Values.enableInitContainer }}
 initContainers:
 - name: {{ .Chart.Name }}-init
   {{- include "volumeMountsConfiguration" . | indent 2}}
   securityContext:
     privileged: true
-  image: "{{ .Values.init.image.repository }}:{{ .Values.init.image.tag | default "latest" }}"
-  imagePullPolicy: {{ .Values.init.image.pullPolicy }}
+  image: "{{ .Values.initContainer.image.repository }}:{{ .Values.initContainer.image.tag | default "latest" }}"
+  imagePullPolicy: {{ .Values.initContainer.image.pullPolicy }}
   {{- include "initContainerCommand" . | indent 2 }}
   {{- include "initContainerEnvVariables" . | indent 2 }}
   {{- include "workingDir" . | indent 2 }}

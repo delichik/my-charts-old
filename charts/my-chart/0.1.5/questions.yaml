@@ -724,15 +724,14 @@ questions:
       valid_chars: "^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$"
       default: "8Gi"
 
-
-  - variable: enableInit
+  - variable: enableInitContainer
     description: "Enable Init Container Configuration"
     group: "Init Configuration"
     schema:
       type: boolean
       default: false
 
-  - variable: init
+  - variable: initContainer
     description: "Init Container Configuration"
     group: "Init Configuration"
     schema:
