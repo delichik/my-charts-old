@@ -731,71 +731,76 @@ questions:
       type: boolean
       default: false
 
-  - variable: initContainer
-    description: "Init Container Configuration"
+  - variable: initContainerImage
+    description: "Docker Image Details of Init Container"
+    label: "Docker Image of Init Container"
     group: "Init Configuration"
     schema:
+      show_if: [["enableInitContainer", "=", true]]
       type: dict
-      show_if: [["enableInit", "=", true]]
+      required: true
       attrs:
-        - variable: image
-          description: "Docker Image Details of Init Container"
-          label: "Docker Image of Init Container"
+        - variable: repository
+          description: "Docker image repository"
+          label: "Image repository"
           schema:
-            type: dict
+            type: string
             required: true
-            attrs:
-              - variable: repository
-                description: "Docker image repository"
-                label: "Image repository"
-                schema:
-                  type: string
-                  required: true
-              - variable: tag
-                description: "Tag to use for specified image"
-                label: "Image Tag"
-                schema:
-                  type: string
-                  default: "latest"
-              - variable: pullPolicy
-                description: "Docker Image Pull Policy"
-                label: "Image Pull Policy"
-                schema:
-                  type: string
-                  default: "IfNotPresent"
-                  enum:
-                    - value: "IfNotPresent"
-                      description: "Only pull image if not present on host"
-                    - value: "Always"
-                      description: "Always pull image even if present on host"
-                    - value: "Never"
-                      description: "Never pull image even if it's not present on host"
-        - variable: containerCommand
-          description: "Init Container Command"
+        - variable: tag
+          description: "Tag to use for specified image"
+          label: "Image Tag"
+          schema:
+            type: string
+            default: "latest"
+        - variable: pullPolicy
+          description: "Docker Image Pull Policy"
+          label: "Image Pull Policy"
+          schema:
+            type: string
+            default: "IfNotPresent"
+            enum:
+              - value: "IfNotPresent"
+                description: "Only pull image if not present on host"
+              - value: "Always"
+                description: "Always pull image even if present on host"
+              - value: "Never"
+                description: "Never pull image even if it's not present on host"
+  - variable: initContainerCommand
+    description: "Init Container Command"
+    label: "Init Container Command"
+    group: "Init Configuration"
+    schema:
+      type: list
+      show_if: [["enableInitContainer", "=", true]]
+      items:
+        - variable: command
+          description: "Container Command"
           label: "Command"
           schema:
             type: string
-        - variable: containerEnvironmentVariables
-          description: "Additional Container Environment Variables"
-          label: "Additional Container Environment Variables"
+  - variable: initContainerEnvironmentVariables
+    description: "Additional Container Environment Variables"
+    label: "Additional Container Environment Variables"
+    group: "Init Configuration"
+    schema:
+      type: list
+      show_if: [["enableInitContainer", "=", true]]
+      items:
+        - variable: environmentVariable
+          description: "Container Environment Variable"
+          label: "Container Environment Variable"
           schema:
-            type: list
-            items:
-              - variable: environmentVariable
-                description: "Container Environment Variable"
-                label: "Container Environment Variable"
+            type: dict
+            attrs:
+              - variable: name
+                description: "Environment Variable Name"
+                label: "Environment Variable Name"
                 schema:
-                  type: dict
-                  attrs:
-                    - variable: name
-                      description: "Environment Variable Name"
-                      label: "Environment Variable Name"
-                      schema:
-                        type: string
-                        required: true
-                    - variable: value
-                      description: "Environment Variable Value"
-                      label: "Environment Variable Value"
-                      schema:
-                        type: string
-                        required: true
+                  type: string
+                  required: true
+              - variable: value
+                description: "Environment Variable Value"
+                label: "Environment Variable Value"
+                schema:
+                  type: string
+                  required: true

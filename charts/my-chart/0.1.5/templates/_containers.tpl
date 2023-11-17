@@ -89,9 +89,9 @@ workingDir: {{ .Values.workingDir.value | quote}}
 Init Container Command
 */}}
 {{- define "initContainerCommand" }}
-{{- if .Values.initContainer.containerCommand }}
+{{- if .Values.initContainerCommand }}
 command:
-  {{- range .Values.initContainer.containerCommand }}
+  {{- range .Values.initContainerCommand }}
   - {{ . | quote}}
   {{- end }}
 {{- end }}
@@ -101,7 +101,7 @@ command:
 Init Container Environment Variables
 */}}
 {{- define "initContainerEnvVariables" }}
-{{- if or .Values.initContainer.containerEnvironmentVariables .Values.containerEnvironmentVariables }}
+{{- if or .Values.initContainerEnvironmentVariables .Values.containerEnvironmentVariables }}
 env:
   {{- if .Values.containerEnvironmentVariables }}
   {{- range .Values.containerEnvironmentVariables }}
@@ -109,8 +109,8 @@ env:
     value: {{ .value | quote }}
   {{- end }}
   {{- end }}
-  {{- if .Values.initContainer.containerEnvironmentVariables }}
-  {{- range .Values.initContainer.containerEnvironmentVariables }}
+  {{- if .Values.initContainerEnvironmentVariables }}
+  {{- range .Values.initContainerEnvironmentVariables }}
   - name: {{ .name | quote }}
     value: {{ .value | quote }}
   {{- end }}
@@ -129,8 +129,8 @@ initContainers:
   {{- include "volumeMountsConfiguration" . | indent 2}}
   securityContext:
     privileged: true
-  image: "{{ .Values.initContainer.image.repository }}:{{ .Values.initContainer.image.tag | default "latest" }}"
-  imagePullPolicy: {{ .Values.initContainer.image.pullPolicy }}
+  image: "{{ .Values.initContainerImage.repository }}:{{ .Values.initContainerImage.tag | default "latest" }}"
+  imagePullPolicy: {{ .Values.initContainerImage.pullPolicy }}
   {{- include "initContainerCommand" . | indent 2 }}
   {{- include "initContainerEnvVariables" . | indent 2 }}
   {{- include "workingDir" . | indent 2 }}
