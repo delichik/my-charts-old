@@ -738,14 +738,12 @@ questions:
     schema:
       show_if: [["enableInitContainer", "=", true]]
       type: dict
-      required: true
       attrs:
         - variable: repository
           description: "Docker image repository"
           label: "Image repository"
           schema:
             type: string
-            required: true
         - variable: tag
           description: "Tag to use for specified image"
           label: "Image Tag"
