@@ -11,6 +11,21 @@ command:
 {{- end }}
 
 {{/*
+Container Post Start Command
+*/}}
+{{- define "containerPostStartCommand" }}
+{{- if .Values.containerPostStartCommand }}
+lifecycle:
+  postStart:
+    exec:
+      command:
+{{- range .Values.containerPostStartCommand }}
+        - {{ . | quote}}
+{{- end }}
+{{- end }}
+{{- end }}
+
+{{/*
 Container Args
 */}}
 {{- define "containerArgs" }}

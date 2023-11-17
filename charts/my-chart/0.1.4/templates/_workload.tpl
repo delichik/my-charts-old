@@ -59,7 +59,6 @@ runtimeClassName: {{ .Values.global.ixChartContext.nvidiaRuntimeClassName }}
     {{- end }}
   {{- end }}
 {{- end }}
-{{- include "initContainer" . }}
 containers:
 - name: {{ .Chart.Name }}
   {{ include "common.resources.limitation" . | nindent 2 }}
@@ -114,6 +113,7 @@ containers:
   {{- include "containerPorts" . | indent 2 }}
   {{- include "containerResourceConfiguration" . | indent 2 }}
   {{- include "workingDir" . | indent 2 }}
+  {{- include "containerPostStartCommand" . | indent 2 }}
 {{- include "volumeConfiguration" . }}
 {{- include "dnsConfiguration" . }}
 {{- include "hostAliases" . }}

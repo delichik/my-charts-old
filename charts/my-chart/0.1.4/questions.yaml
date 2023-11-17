@@ -25,8 +25,6 @@ groups:
     description: "Specify resources to be allocated to workload"
   - name: "Resource Limits"
     description: "Set CPU/memory limits for Kubernetes Pod"
-  - name: "Init Configuration"
-    description: "Configure Init Container"
   - name: "Portal Configuration"
     description: "Configure UI web portal"
 
@@ -202,6 +200,18 @@ questions:
         - variable: arg
           description: "Container Arg"
           label: "Arg"
+          schema:
+            type: string
+  - variable: containerPostStartCommand
+    description: "Post Start Commands to execute inside container"
+    label: "Container Post Start CMD"
+    group: "Container Entrypoint"
+    schema:
+      type: list
+      items:
+        - variable: command
+          description: "Container Post Start Command"
+          label: "Command"
           schema:
             type: string
   - variable: containerEnvironmentVariables
@@ -723,80 +733,3 @@ questions:
       show_if: [["enableResourceLimits", "=", true]]
       valid_chars: "^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$"
       default: "8Gi"
-
-
-  - variable: enableInit
-    description: "Enable Init Container Configuration"
-    group: "Init Configuration"
-    schema:
-      type: boolean
-      default: false
-
-  - variable: init
-    description: "Init Container Configuration"
-    group: "Init Configuration"
-    schema:
-      type: dict
-      show_if: [["enableInit", "=", true]]
-      attrs:
-        - variable: image
-          description: "Docker Image Details of Init Container"
-          label: "Docker Image of Init Container"
-          schema:
-            type: dict
-            required: true
-            attrs:
-              - variable: repository
-                description: "Docker image repository"
-                label: "Image repository"
-                schema:
-                  type: string
-                  required: true
-              - variable: tag
-                description: "Tag to use for specified image"
-                label: "Image Tag"
-                schema:
-                  type: string
-                  default: "latest"
-              - variable: pullPolicy
-                description: "Docker Image Pull Policy"
-                label: "Image Pull Policy"
-                schema:
-                  type: string
-                  default: "IfNotPresent"
-                  enum:
-                    - value: "IfNotPresent"
-                      description: "Only pull image if not present on host"
-                    - value: "Always"
-                      description: "Always pull image even if present on host"
-                    - value: "Never"
-                      description: "Never pull image even if it's not present on host"
-        - variable: containerCommand
-          description: "Init Container Command"
-          label: "Command"
-          schema:
-            type: string
-        - variable: containerEnvironmentVariables
-          description: "Additional Container Environment Variables"
-          label: "Additional Container Environment Variables"
-          schema:
-            type: list
-            items:
-              - variable: environmentVariable
-                description: "Container Environment Variable"
-                label: "Container Environment Variable"
-                schema:
-                  type: dict
-                  attrs:
-                    - variable: name
-                      description: "Environment Variable Name"
-                      label: "Environment Variable Name"
-                      schema:
-                        type: string
-                        required: true
-                    - variable: value
-                      description: "Environment Variable Value"
-                      label: "Environment Variable Value"
-                      schema:
-                        type: string
-                        required: true
