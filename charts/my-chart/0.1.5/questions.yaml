@@ -726,11 +726,11 @@ questions:
 
   - variable: enableInitContainer
     description: "Enable Init Container Configuration"
+    label: "Enable Init Container Configuration"
     group: "Init Configuration"
     schema:
       type: boolean
       default: false
-
   - variable: initContainerImage
     description: "Docker Image Details of Init Container"
     label: "Docker Image of Init Container"
